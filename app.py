@@ -2,15 +2,17 @@ import streamlit as st
 import firebase_admin
 from firebase_admin import credentials, firestore, auth
 import random
+import os
 
 # Firebase Configuration
+firebase_config_path = os.path.join(os.getcwd(), "firebase_config.json")
+
+# Initialize Firebase
 if not firebase_admin._apps:
-    cred = credentials.Certificate("firebase_config.json")  
+    cred = credentials.Certificate(firebase_config_path)
     firebase_admin.initialize_app(cred)
 
-
-db = firestore.client() 
-
+db = firestore.client()
 # Custom Styling
 st.markdown(
     """
