@@ -146,7 +146,7 @@ with tab2:
 
 
     if st.button("Check DNA Match"):
-        correct_sequence = "".json([complement[base] for base in dna_sequence])
+        correct_sequence = "".join([complement[base] for base in dna_sequence])
         if user_sequence.upper()  == correct_sequence:
             st.success("✅ Correct DNA sequence! 🎉")
         else:
